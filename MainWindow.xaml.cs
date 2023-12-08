@@ -37,6 +37,8 @@ namespace WpfListy3Ppiatek
             DataContext = this;
             lista3.ItemsSource = Slowa;
             przygotujDane();
+            Kategoria_data_grid.ItemsSource = new List<string>()
+            { "Nabiał", "Pieczywo", "Napoje", "Owoce", "Warzywa" };
 
         }
         private void przygotujDane()

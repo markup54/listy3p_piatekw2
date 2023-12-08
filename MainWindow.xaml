@@ -60,8 +60,74 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
             </TabItem>
-            <TabItem Header="ListView"></TabItem>
-            <TabItem Header="DataGrid"></TabItem>
+            <TabItem Header="ListView">
+                <StackPanel>
+                <ListView ItemsSource="{Binding Produkty}"
+                          SelectionMode="Multiple"
+                         SelectedItem="{Binding ZaznaczonyElement}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding Nazwa}"/>
+                                <Label Content="{Binding Opis}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    
+                </ListView>
+
+                    <Separator/>
+                    <ListView ItemsSource="{Binding Produkty}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding Nazwa}"
+                                    Header="NAzwa"/>
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding Cena}"
+                                    Header="Cena"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+
+
+                </StackPanel>
+                        
+                        
+                        
+            </TabItem>
+            <TabItem Header="DataGrid">
+                <StackPanel>
+                <DataGrid ItemsSource="{Binding Produkty}"
+                          CanUserDeleteRows="False"
+                          CanUserResizeRows="False"
+                          CanUserSortColumns="True"
+                          CanUserAddRows="True"
+                          AlternatingRowBackground="DarkGreen"
+                          AlternationCount="3"
+                          RowBackground="GreenYellow"
+                          IsReadOnly="True"
+                         
+                          />
+                <DataGrid ItemsSource="{Binding Produkty}"
+                          AutoGenerateColumns="False"
+                          GridLinesVisibility="Horizontal"
+                          HorizontalGridLinesBrush="Brown"
+                          >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nazwa produkty"
+                                                Binding="{Binding Nazwa}"/>
+                            <DataGridCheckBoxColumn Header="Dostępność"
+                                                    Binding="{Binding Dostepny}"/>
+                            <DataGridComboBoxColumn Header="Kategoria"
+                                                    x:Name="Kategoria_data_grid"
+                                                    SelectedItemBinding="{Binding Kategoria}"/>
+                        </DataGrid.Columns>
+                </DataGrid>
+                </StackPanel>
+
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
