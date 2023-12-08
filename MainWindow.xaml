@@ -48,7 +48,17 @@
             </TabItem>
             
             <TabItem Header="ListBox">
-                
+                <ListBox ItemsSource="{Binding Produkty}"
+                         SelectedItem="{Binding ZaznaczonyElement}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding Nazwa}"/>
+                                <Label Content="{Binding Opis}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </TabItem>
             <TabItem Header="ListView"></TabItem>
             <TabItem Header="DataGrid"></TabItem>

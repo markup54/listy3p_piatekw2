@@ -23,6 +23,7 @@ namespace WpfListy3Ppiatek
 
         public List<string> Slowa { get; set; }
         public List<Produkt>Produkty { get; set; }
+        public Produkt ZaznaczonyElement { get; set; }
         public MainWindow()
         {
             InitializeComponent();
